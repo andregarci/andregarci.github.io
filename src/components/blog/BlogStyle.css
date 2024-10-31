@@ -1,0 +1,279 @@
+/* Estilos generales */
+.page-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 15px;
+}
+
+/* Títulos */
+.page-title {
+  position: relative;
+  font-weight: 400;
+  color: #21325e;
+}
+
+h5 {
+  color: #45505b;
+  margin: 1.5rem 0 1rem;
+  font-weight: 500;
+}
+
+a {
+  color: #228896;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+/* ConsoleView mejorado */
+.console-view {
+  position: relative;
+  background-color: #343a40;
+  color: #f8f9fa;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  margin: 1rem 2.5rem;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-right: 3rem;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  transform: scale(1.05);
+}
+
+pre {
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: "Fira Code", monospace;
+  padding-right: 2.5rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* Botones mejorados */
+.btn-primary {
+  background-color: #228896;
+  border-color: #228896;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1b6b76;
+  border-color: #1b6b76;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #228896;
+  border-color: #228896;
+}
+
+.btn:disabled {
+  background-color: #228896;
+  opacity: 0.8;
+}
+
+/* Lista y elementos */
+.guide-list {
+  padding-left: 0;
+  counter-reset: item;
+}
+
+.list-group-item {
+  border: none;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+li ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+/* Contenedor de imagen*/
+
+.list-group-item img {
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transform: translateY(0); 
+  transition: all 0.3s ease-in-out;
+}
+.image-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.image-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto hover sutil */
+.list-group-item img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor para imágenes grandes */
+.list-group-item .image-container {
+  position: relative;
+  margin: 2rem -1.5rem; 
+  padding: 0 1.5rem;
+}
+
+/* Imagen dentro del contenedor */
+.list-group-item .image-container img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Leyenda de imagen (opcional) */
+.list-group-item .image-caption {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+/* Botones de modo de arranque */
+.boot-mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Espacios para anuncios */
+.ad-space {
+  min-height: 100px;
+  margin: 1rem 0;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-placeholder {
+  color: #6c757d;
+  text-align: center;
+  padding: 1rem;
+}
+
+.ad-space-top,
+.ad-space-bottom {
+  width: 100%;
+  min-height: 90px;
+}
+
+.ad-space-left,
+.ad-space-right {
+  position: sticky;
+  top: 1rem;
+  min-height: 600px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ad-space-left,
+  .ad-space-right {
+    display: none;
+  }
+  .container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .console-view {
+    margin: 1rem 0rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .list-group-item {
+    padding: 1rem;
+  }
+
+  pre {
+    font-size: 0.85rem;
+  }
+  .list-group-item img {
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+  }
+
+  .list-group-item .image-container {
+    margin: 1rem -1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .boot-mode-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-primary {
+    margin: 0.25rem 0;
+  }
+  .list-group-item img {
+    margin: 0.75rem 0;
+  }
+
+  .list-group-item .image-container {
+    margin: 0.75rem -0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+}
+/* Optimización para carga de imágenes */
+.list-group-item img {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
