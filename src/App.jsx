@@ -18,8 +18,8 @@ function App() {
   return (
     <Suspense fallback={<div className="loader"></div>}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Blog />} />
         <Route path="/portafolio" element={<Portafolio />} />
         <Route path="/blog/arch" element={<Arch />} />
         <Route path="/blog/vite_gh-pages" element={<Vite_ghpages />} />
