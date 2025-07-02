@@ -1,23 +1,29 @@
-import React from "react";
+const heroData = {
+  backgroundImage: "https://w.wallhaven.cc/full/3k/wallhaven-3kr5y6.png",
+  name: "Andre Garcia",
+  typedItems: ["Designer", "Developer", "Freelancer", "Photographer"],
+  currentRole: "Programador"
+};
 
+// Componente HeroSection para la sección inicial del portafolio
 const HeroSection = () => {
   return (
     <section id="hero" className="hero section light-background">
       <img
-        src="https://w.wallhaven.cc/full/3k/wallhaven-3kr5y6.png"
-        alt=""
+        src={heroData.backgroundImage}
+        alt="Hero background"
       />
 
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-9">
-            <h2>Andre Garcia</h2>
+            <h2>{heroData.name}</h2>
             <p>
               <span
                 className="typed"
-                data-typed-items="Designer, Developer, Freelancer, Photographer"
+                data-typed-items={heroData.typedItems.join(", ")}
               >
-                Programador
+                {heroData.currentRole}
               </span>
               <span
                 className="typed-cursor typed-cursor--blink"

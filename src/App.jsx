@@ -1,14 +1,31 @@
-import React, { lazy, Suspense } from "react";
-import "./loader.css";
+import React from "react";
 
-const Portafolio = lazy(() => import("./components/Portafolio"));
+// Secciones
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import HabilidadesSection from "./components/HabilidadesSection";
+import SkillsSection from "./components/SkillsSection";
+import ResumeSection from "./components/ResumeSection";
+import Footer from "./components/Footer";
 
-function App() {
+// Array de secciones para facilitar la adición o eliminación de componentes
+const sections = [
+  { Component: HeroSection, id: "hero" },
+  { Component: AboutSection, id: "about" },
+  { Component: HabilidadesSection, id: "habilidades" },
+  { Component: SkillsSection, id: "skills" },
+  { Component: ResumeSection, id: "resume" },
+  { Component: Footer, id: "footer" }
+];
+
+const App = () => {
   return (
-    <Suspense fallback={<div className="loader"></div>}>
-      <Portafolio />
-    </Suspense>
+    <>
+      {sections.map(({ Component, id }, index) => (
+        <Component key={id || index} />
+      ))}
+    </>
   );
-}
+};
 
 export default App;

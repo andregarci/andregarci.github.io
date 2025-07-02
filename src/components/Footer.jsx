@@ -1,5 +1,3 @@
-import React from "react";
-
 const Footer = () => {
   return (
     <div id="footer" className="footer position-relative light-background">

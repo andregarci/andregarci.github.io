@@ -1,0 +1,89 @@
+/* Importar variables globales */
+@import './variables.css';
+
+/*--------------------------------------------------------------
+# Contenido Principal
+--------------------------------------------------------------*/
+main#content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #fcfeff;
+  box-shadow: -3px 0 10px rgba(74, 85, 98, 0.2);
+  transition: left var(--transition-normal), box-shadow var(--transition-normal);
+  scroll-behavior: smooth;
+}
+
+main#content::-webkit-scrollbar {
+  width: 8px;
+}
+
+main#content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main#content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+/* Botón de menú */
+main#content div.menu-trigger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  z-index: 10;
+  background: var(--menu-trigger-bg);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main#content div.menu-trigger i {
+  font-size: 24px;
+  transition: transform var(--transition-normal);
+}
+
+main#content div.menu-trigger:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: scale(1.1);
+}
+
+body.menu-active main#content div.menu-trigger i {
+  transform: rotate(180deg);
+}
+
+/* Movimiento del contenido cuando el menú está activo */
+body.menu-active main#content {
+  left: var(--menu-width);
+  transition: left var(--transition-normal);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+body.menu-active main#content .menu-trigger {
+  left: calc(var(--menu-width) + 20px);
+}
+
+/* Efecto de transición para todo el contenido */
+main#content > * {
+  transition: opacity 0.5s ease-out;
+}
+
+main#content:not(.loading) > * {
+  animation: fadeContentIn 0.5s forwards;
+}
+
+@keyframes fadeContentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

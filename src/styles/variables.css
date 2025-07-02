@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+# Variables CSS globales
+--------------------------------------------------------------*/
+:root { 
+  /* Colores principales */
+  --background-color: #ffffff;
+  --default-color: #272829;
+  --heading-color: #45505b;
+  --accent-color: #228896;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff; 
+  
+  /* Colores de estado */
+  --accent-hover-color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  
+  /* Colores de menú */
+  --menu-bg-color: #e5e5e5;
+  --menu-text-color: rgba(0, 0, 0, 0.9);
+  --menu-secondary-text-color: #7c7c7c;
+  --menu-link-color: rgba(0, 0, 0, 0.7);
+  --menu-trigger-bg: #dfe5eb;
+  
+  /* Tamaños y espaciados */
+  --menu-width: 284px;
+  --menu-transition-speed: 0.3s;
+  
+  /* Fuentes */
+  --title-font: Alice, Georgia, serif;
+  --default-font: "Roboto", Arial, sans-serif;
+  
+  /* Nuevas variables de diseño */
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  --section-spacing: 90px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 15px;
+  --border-radius-lg: 25px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --element-spacing: 1.5rem;
+}
+
+/* Media queries breakpoints */
+:root {
+  --breakpoint-xs: 576px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}

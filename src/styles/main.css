@@ -1,0 +1,16 @@
+/* Importación de todos los archivos CSS del proyecto */
+
+/* Variables y estilos base */
+@import './variables.css';
+@import './base.css';
+
+/* Componentes de layout */
+@import './menu.css';
+@import './layout.css';
+
+/* Componentes de secciones */
+@import './sections.css';
+@import './skills.css';
+
+/* Estilos responsivos */
+@import './responsive.css';

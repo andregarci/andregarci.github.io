@@ -1,8 +1,34 @@
-# React + Vite
+# Portfolio Personal - André García
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un sitio web personal/portfolio desarrollado con React y Vite, diseñado para mostrar información profesional, habilidades y proyectos de manera elegante y responsive.
 
-Currently, two official plugins are available:
+## Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Diseño completamente responsive con puntos de quiebre personalizados
+- Menú lateral deslizante con navegación intuitiva
+- Animaciones suaves y transiciones para una mejor experiencia de usuario
+- Secciones para mostrar habilidades, experiencia, educación y contacto
+- Sistema de diseño coherente con variables CSS reutilizables
+
+## Tecnologías utilizadas
+
+- React
+- Vite
+- CSS moderno (variables CSS, flexbox, grid)
+- Responsive design
+
+## Desarrollo local
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
+
+# Vista previa de la compilación de producción
+npm run preview
+```

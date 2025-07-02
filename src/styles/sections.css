@@ -1,0 +1,404 @@
+/* Importar variables globales */
+@import './variables.css';
+
+/*--------------------------------------------------------------
+# Secciones Generales
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: var(--section-spacing) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Alternar el fondo de las secciones para mejor separación visual */
+section:nth-child(even),
+.section:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 40px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  position: relative;
+  letter-spacing: 1px;
+  display: inline-block;
+  color: var(--heading-color);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-title h2:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, color-mix(in srgb, var(--default-color), transparent 60%), transparent);
+  left: -10%;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: width var(--transition-normal), transform var(--transition-normal);
+  border-radius: 3px;
+}
+
+.section-title:hover h2::after {
+  width: 100px;
+  transform: translateY(2px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+/* Añadir decoración en los extremos del título */
+.section-title h2::before,
+.section-title h2::after {
+  transform-origin: center;
+}
+
+/* Decoración adicional para los títulos */
+.section-title::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+  top: -15px;
+  left: calc(50% - 120px);
+  transform: scale(0);
+  transition: transform var(--transition-normal);
+}
+
+.section-title:hover::before {
+  transform: scale(1);
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.4;
+  top: 10px;
+  left: calc(50% + 100px);
+  transform: scale(0);
+  transition: transform var(--transition-slow);
+}
+
+.section-title:hover::after {
+  transform: scale(1);
+}
+
+/* Animación para los títulos de sección cuando entran en viewport */
+.section-title.animate h2 {
+  animation: fadeInDown 0.8s forwards;
+}
+
+.section-title.animate p {
+  animation: fadeInUp 0.8s forwards 0.3s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Para asegurarnos que la imagen no desborde */
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 10s ease;
+}
+
+.hero:hover img {
+  transform: scale(1.05);
+}
+
+.hero:before {
+  content: "";
+  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+}
+
+.hero p {
+  margin: 15px 0 0 0;
+  font-size: 26px;
+  animation: slideUp 1s ease-out 0.5s both;
+}
+
+.hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 3px;
+  transition: border-width var(--transition-normal);
+}
+
+.hero p:hover span {
+  border-bottom-width: 3px;
+}
+
+.hero .social-links {
+  margin-top: 30px;
+  animation: slideUp 1s ease-out 0.8s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero .social-links a {
+  font-size: 22px;
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  line-height: 1;
+  margin-right: 25px;
+  transition: all var(--transition-normal);
+}
+
+.hero .social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/*--------------------------------------------------------------
+# Habilidades Section
+--------------------------------------------------------------*/
+.habilidades .habilidad-item {
+  position: relative;
+  padding: 25px;
+  border-radius: var(--border-radius-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.habilidades .habilidad-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+.habilidades .habilidad-item .icon {
+  background: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: var(--transition-normal);
+  border: 1px solid var(--accent-color);
+  margin-right: 20px;
+}
+
+.habilidades .habilidad-item .icon i {
+  color: var(--contrast-color);
+  font-size: 28px;
+  line-height: 0;
+  transition: var(--transition-normal);
+}
+
+.habilidades .habilidad-item:hover .icon {
+  background: var(--surface-color);
+  transform: rotateY(180deg);
+}
+
+.habilidades .habilidad-item:hover .icon i {
+  color: var(--accent-color);
+  transform: rotateY(180deg);
+}
+
+.habilidades .habilidad-item .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 20px;
+  transition: color var(--transition-normal);
+}
+
+.habilidades .habilidad-item .title a {
+  color: var(--heading-color);
+  transition: color var(--transition-normal);
+}
+
+.habilidades .habilidad-item .title a:hover {
+  color: var(--accent-color);
+}
+
+.habilidades .habilidad-item .description {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/*--------------------------------------------------------------
+# Resume Section
+--------------------------------------------------------------*/
+.resume .resume-title {
+  color: var(--heading-color);
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.resume .resume-title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+.resume .resume-item {
+  padding: 0 0 30px 25px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 1.4;
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 12px;
+}
+
+.resume .resume-item h5 {
+  font-size: 17px;
+  padding: 6px 16px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: var(--border-radius-sm);
+}
+
+.resume .resume-item ul {
+  padding-left: 22px;
+  margin-top: 10px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.resume .resume-item ul li:before {
+  content: "▹";
+  color: var(--accent-color);
+  position: absolute;
+  left: -20px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  left: -10px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+  transition: background var(--transition-normal);
+}
+
+.resume .resume-item:hover::before {
+  background: var(--accent-color);
+}

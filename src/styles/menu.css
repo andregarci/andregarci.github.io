@@ -1,0 +1,176 @@
+/* Importar variables globales */
+@import './variables.css';
+
+/*--------------------------------------------------------------
+# Menú Lateral
+--------------------------------------------------------------*/
+#slide-menu {
+  background-color: var(--menu-bg-color);
+  padding-top: 30px;
+  padding-bottom: 40px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: -100%;
+  max-width: var(--menu-width);
+  height: 100%;
+  overflow-y: auto;
+  transition: left var(--transition-normal), box-shadow var(--transition-normal);
+  z-index: 1000;
+  box-shadow: none;
+}
+
+body.menu-active #slide-menu {
+  left: 0;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+}
+
+#slide-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+#slide-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#slide-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+/* Logo y perfil */
+#slide-menu #logo img.rounded-circle {
+  display: block;
+  border: 9px solid rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#slide-menu #logo:hover img.rounded-circle {
+  transform: scale(1.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+#slide-menu #logo .title {
+  font-family: var(--title-font);
+  font-size: 3.0625rem;
+  text-align: center;
+  margin-top: 15px;
+  background: linear-gradient(45deg, var(--default-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.9;
+}
+
+#slide-menu #logo .tagline {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.3em;
+  color: var(--menu-secondary-text-color);
+  margin: 10px 0 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#slide-menu #logo .tagline a {
+  color: #5e5e5e;
+  transition: color var(--transition-fast);
+}
+
+#slide-menu #logo .tagline a:hover {
+  color: var(--accent-color);
+}
+
+/* Enlaces de navegación */
+#slide-menu #main-menu ul {
+  text-align: center;
+  margin: 2.5rem 0;
+  padding: 0;
+}
+
+#slide-menu #main-menu ul li {
+  margin: 0 0 25px 0;
+  list-style: none;
+}
+
+#slide-menu #main-menu ul li a {
+  color: var(--menu-text-color);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 15px;
+  font-family: var(--default-font);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+#slide-menu #main-menu ul li a:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 7px;
+  left: 15px;
+  right: 15px;
+  background-color: var(--accent-color);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#slide-menu #main-menu ul li a:hover {
+  color: var(--accent-color);
+}
+
+#slide-menu #main-menu ul li a:hover:after,
+#slide-menu #main-menu ul li.active a:after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Enlaces sociales */
+#slide-menu .social {
+  bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+#slide-menu .social ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#slide-menu .social ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+#slide-menu .social ul li a {
+  color: var(--menu-link-color);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  transition: all var(--transition-normal);
+}
+
+#slide-menu .social ul li a:hover {
+  color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
