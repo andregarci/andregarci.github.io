@@ -1,29 +1,48 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 
-// Secciones
+// El componente HeroSection se carga de forma estática (eager) porque es
+// lo primero que el usuario ve.
 import HeroSection from "./components/HeroSection";
-import AboutSection from "./components/AboutSection";
-import HabilidadesSection from "./components/HabilidadesSection";
-import SkillsSection from "./components/SkillsSection";
-import ResumeSection from "./components/ResumeSection";
-import Footer from "./components/Footer";
 
-// Array de secciones para facilitar la adición o eliminación de componentes
-const sections = [
-  { Component: HeroSection, id: "hero" },
+// El resto de los componentes se importan de forma dinámica (lazy loading)
+// para no bloquear la carga inicial de la página.
+const AboutSection = lazy(() => import("./components/AboutSection"));
+const HabilidadesSection = lazy(() => import("./components/HabilidadesSection"));
+const SkillsSection = lazy(() => import("./components/SkillsSection"));
+const ResumeSection = lazy(() => import("./components/ResumeSection"));
+const ProjectsSection = lazy(() => import("./components/ProjectsSection"));
+const Footer = lazy(() => import("./components/Footer"));
+
+// Componentes que se cargan inmediatamente
+const eagerSections = [{ Component: HeroSection, id: "hero" }];
+
+// Componentes que se cargarán solo cuando sean necesarios
+const lazySections = [
   { Component: AboutSection, id: "about" },
   { Component: HabilidadesSection, id: "habilidades" },
   { Component: SkillsSection, id: "skills" },
+  { Component: ProjectsSection, id: "projects" },
   { Component: ResumeSection, id: "resume" },
-  { Component: Footer, id: "footer" }
+  { Component: Footer, id: "footer" },
 ];
 
 const App = () => {
   return (
     <>
-      {sections.map(({ Component, id }, index) => (
-        <Component key={id || index} />
-      ))}
+      <main>
+        {/* Renderiza los componentes estáticos inmediatamente */}
+        {eagerSections.map(({ Component, id }, index) => (
+          <Component key={id || index} />
+        ))}
+
+        {/* Suspense envuelve los componentes lazy. Muestra un fallback
+            mientras espera que se descargue el código del componente. */}
+        <Suspense fallback={<div>Cargando...</div>}>
+          {lazySections.map(({ Component, id }, index) => (
+            <Component key={id || index} />
+          ))}
+        </Suspense>
+      </main>
     </>
   );
 };

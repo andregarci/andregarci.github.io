@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import iconsSVG from "../hooks/IconsSVG";
 
 // Datos de habilidades organizados por categorías
@@ -26,16 +27,33 @@ const skillsData = [
   { name: "Vite", icon: "vitejs.svg" },
 ];
 
+// Variantes de animación para el contenedor de la lista
+const listVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Aplica un retraso de 0.1s entre cada hijo
+    },
+  },
+};
+
+// Variantes de animación para cada item de la lista
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 // Componente para mostrar una habilidad individual
 const SkillItem = ({ name, icon }) => (
-  <li className="skill-item">
+  <motion.li className="skill-item" variants={itemVariants}>
     <img
       src={iconsSVG[icon]}
       alt={name}
       className="icon-container"
     />
     <span className="skill-name">{name}</span>
-  </li>
+  </motion.li>
 );
 
 const SkillsSection = () => {
@@ -50,9 +68,15 @@ const SkillsSection = () => {
       </div>
 
       <div className="container">
-        <div className="row skills-content skills-animation">
+        <div className="row skills-content">
           <div className="wrapper-container">
-            <ul className="wrapper">
+            <motion.ul
+              className="wrapper"
+              variants={listVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {skillsData.map((skill, index) => (
                 <SkillItem 
                   key={index}
@@ -60,7 +84,7 @@ const SkillsSection = () => {
                   icon={skill.icon} 
                 />
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </div>

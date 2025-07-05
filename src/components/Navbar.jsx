@@ -6,6 +6,7 @@ const navLinks = [
   { href: "#about", text: "Portafolio" },
   { href: "#habilidades", text: "Habilidades Blandas" },
   { href: "#skills", text: "Conocimientos" },
+  { href: "#projects", text: "Proyectos" },
   { href: "#resume", text: "Perfil Profesional" },
 ];
 
@@ -57,7 +58,7 @@ const ProfileHeader = () => (
 
 // Navigation menu component
 const NavMenu = () => (
-  <div id="main-menu" role="navigation">
+  <nav id="main-menu" aria-label="Main Navigation">
     <ul>
       {navLinks.map((link, index) => (
         <li key={index}>
@@ -65,7 +66,7 @@ const NavMenu = () => (
         </li>
       ))}
     </ul>
-  </div>
+  </nav>
 );
 
 // Social links component

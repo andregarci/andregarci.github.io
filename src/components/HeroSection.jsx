@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const heroData = {
   backgroundImage: "https://w.wallhaven.cc/full/3k/wallhaven-3kr5y6.png",
   name: "Andre Garcia",
@@ -8,7 +10,13 @@ const heroData = {
 // Componente HeroSection para la sección inicial del portafolio
 const HeroSection = () => {
   return (
-    <section id="hero" className="hero section light-background">
+    <motion.section
+      id="hero"
+      className="hero section light-background"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <img
         src={heroData.backgroundImage}
         alt="Hero background"
@@ -33,7 +41,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,0 +1,104 @@
+/* Contenedor principal de la sección de proyectos */
+.projects.section {
+  background-color: #f8f9fa; /* Un fondo ligeramente diferente para separar secciones */
+}
+
+/* Grid para las tarjetas de proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+/* Estilo base de la tarjeta */
+.project-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Contenedor de la imagen */
+.card-image-container {
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio */
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--heading-color);
+}
+
+/* Etiquetas de tecnologías */
+.card-tags {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-tag {
+  background-color: var(--accent-color-light);
+  color: var(--accent-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--default-color);
+  flex-grow: 1; /* Empuja los enlaces hacia abajo */
+  margin-bottom: 1.5rem;
+}
+
+/* Enlaces a GitHub y Demo */
+.card-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: auto; /* Alinea los enlaces al final de la tarjeta */
+}
+
+.card-links a {
+  color: var(--heading-color);
+  font-size: 1.8rem; /* Iconos más grandes */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card-links a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const softSkills = [
   {
     icon: "bi-clock",
@@ -32,7 +34,14 @@ const SkillItem = ({ icon, title, description }) => (
 
 const HabilidadesSection = () => {
   return (
-    <section id="habilidades" className="habilidades section">
+    <motion.section
+      id="habilidades"
+      className="habilidades section"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="container section-title">
         <h2>Habilidades Blandas</h2>
       </div>
@@ -49,7 +58,7 @@ const HabilidadesSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
